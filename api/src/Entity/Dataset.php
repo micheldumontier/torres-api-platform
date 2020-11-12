@@ -108,21 +108,53 @@ class Dataset
      */
     public $publisher_name;
 
+    /**
+     * @var GraphMap[] Available dataservices for this dataset.
+     * @ApiProperty(iri="http://example.org/hasGraphMap")
+     * @ORM\OneToMany(targetEntity="GraphMap", mappedBy="dataset", cascade={"persist", "remove"})
+     */
+    public $graphmaps;
 
     /**
      * @var DataService[] Available dataservices for this dataset.
-     *
+     * @ApiProperty(iri="http://www.w3.org/ns/dcat#isServedBy")
      * @ORM\OneToMany(targetEntity="DataService", mappedBy="dataset", cascade={"persist", "remove"})
      */
     public $dataservices;
     
     public function __construct()
     {
-        $this->reviews = new ArrayCollection();
+        $this->graphmaps = new ArrayCollection();
+        $this->dataservices = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
+    public function addDataService(DataService $dataservice): void
+    {
+        $dataservice->dataset = $this;
+        $this->dataservices->add($dataservice);
+    }
+
+    public function removeDataService(DataService $dataservice): void
+    {
+        $dataservice->dataset = null;
+        $this->dataservices->removeElement($dataservice);
+    }
+
+    public function addGraphMap(GraphMap $graphmap): void
+    {
+        $graphmap->dataset = $this;
+        $this->graphmaps->add($graphmap);
+    }
+
+    public function removeGraphMap(GraphMap $graphmap): void
+    {
+        $graphmap->dataset = null;
+        $this->graphmaps->removeElement($graphmap);
+    }
+
 }

@@ -55,6 +55,14 @@ class DataService
     public $url;
 
     /**
+     * @var string The type of service that this DataService provides (e.g. sparql, graphql, api)
+     *
+     * @ApiProperty(iri="http://example.org/serviceType")
+     * @ORM\Column
+     */
+    public $serviceType;
+
+    /**
      * @var string The standard that this DataService conforms to
      *
      * @ApiProperty(iri="http://purl.org/dc/terms/#conformsTo")
@@ -68,24 +76,15 @@ class DataService
      *
      * @ApiProperty(iri="http://purl.org/dc/terms/publisher")
      * @Assert\Url
-     * @Assert\NotBlank
      * @ORM\Column
      */
     public $publisher;
 
     /**
-     * @var string The kind of DataService.
-     *
-     * @ORM\Column(type="text")
-     */
-    public $type;
-
-
-    /**
      * @var Dataset The Dataset this DataService is about.
      *
      * @ApiProperty(iri="http://www.w3.org/ns/dcat#servesDataset")
-     * @ORM\ManyToOne(targetEntity="Dataset", inversedBy="DataServices")
+     * @ORM\ManyToOne(targetEntity="Dataset", inversedBy="dataservices")
      */
     public $dataset;
 
