@@ -20,5 +20,5 @@ api_platform:
 
     
     # Specify a path name generator to use.
-    path_segment_name_generator: 'api_platform.path_segment_name_generator.underscore'
+    #path_segment_name_generator: 'api_platform.path_segment_name_generator.underscore'
     #path_segment_name_generator: 'App\Operation\SingularPathSegmentNameGenerator'    
