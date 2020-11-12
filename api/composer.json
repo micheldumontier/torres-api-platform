@@ -29,8 +29,7 @@
         "symfony/twig-bundle": "5.1.*",
         "symfony/validator": "5.1.*",
         "symfony/yaml": "5.1.*",
-        "webonyx/graphql-php": "^14.3",
-        "object-path": "0.11.5"
+        "webonyx/graphql-php": "^14.3"
     },
     "require-dev": {
         "api-platform/schema-generator": "^2.2",
