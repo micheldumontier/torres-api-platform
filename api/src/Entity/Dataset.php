@@ -93,10 +93,10 @@ class Dataset
     public $license;
 
     /**
-     * @var \DateInterface The publication date of this dataset.
+     * @var \DateTimeInterface The publication date of this dataset.
      *
      * @ApiProperty(iri="http://purl.org/dc/terms/issued")
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     public $publicationDate;
 
