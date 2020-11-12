@@ -1,6 +1,7 @@
 api_platform:
-    title: Hello API Platform
-    version: 1.0.0
+    title: TORRES - regisTry Of faiR seRvErS
+    description: TORRES is a registry of FAIR data servers. It contains metadata about each server, their contents, and their location.
+    version: 0.1.0
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
     patch_formats:
@@ -8,5 +9,16 @@ api_platform:
     swagger:
         versions: [3]
     # Mercure integration, remove if unwanted
-    mercure:
-        hub_url: '%env(MERCURE_SUBSCRIBE_URL)%'
+    #mercure:
+    #    hub_url: '%env(MERCURE_SUBSCRIBE_URL)%'
+    show_webby: false
+    graphql:
+        enabled: true
+
+    # Specify a name converter to use.
+    #name_converter: ~
+
+    
+    # Specify a path name generator to use.
+    path_segment_name_generator: 'api_platform.path_segment_name_generator.underscore'
+    #path_segment_name_generator: 'App\Operation\SingularPathSegmentNameGenerator'    
