@@ -1,0 +1,11 @@
+{
+  "@context": "/contexts/DataService",
+  "@type": "http://www.w3.org/ns/dcat#DataService",
+  "name": "Pathogens endpoint",
+  "description": "A SPARQL endpoint with pathogen data",
+  "url": "http://ldp.cbgp.upm.es:8890/sparql",
+  "serviceType": "SPARQL",
+  "conformsTo": "https://www.w3.org/TR/sparql11-overview/",
+  "publisher": "http://ldp.cbgp.upm.es",
+  "dataset": "/datasets/4"
+}

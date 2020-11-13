@@ -1,0 +1,11 @@
+{     
+      "@context": "/contexts/Dataset",
+      "@type": "http://www.w3.org/ns/dcat#Dataset",
+      "identifier": "mw2",
+      "title": "Pathogens",
+      "description": "A dataset of pathogens",
+      "publisher": "http://ldp.cbgp.upm.es",
+      "license": "http://ldp.cbgp.upm.es/dataset/infections/license",
+      "publicationDate": "2020-11-13T11:25:00+00:00",
+      "publisher_name": "Mark Wilkinson"
+}
