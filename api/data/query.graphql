@@ -1,0 +1,37 @@
+{
+    datasets {
+      edges {
+        node {
+          title
+          description
+          publisher
+          license
+          publicationDate
+          graphmaps{
+            edges {
+              node {
+                subjectType
+                predicate
+                objectType
+              }
+            }
+          }
+          dataservices {
+            edges {
+              node{
+                 name
+                description
+                url
+                serviceType
+                conformsTo
+                dataset {
+                  id
+                  
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
