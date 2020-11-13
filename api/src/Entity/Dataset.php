@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /*
 dc	http://purl.org/dc/elements/1.1/
@@ -31,13 +32,21 @@ xsd	http://www.w3.org/2001/XMLSchema#
  * A Dataset.
  *
  * @ORM\Entity
- * @ApiResource(iri="http://www.w3.org/ns/dcat#Dataset")
+ * @ApiResource(
+ *  iri="http://www.w3.org/ns/dcat#Dataset",
+ *  normalizationContext = {
+ *      "groups" = {"expand"}
+ *   },
+ *  denormalizationContext = {
+ *      "groups" = {"expand"}
+ *   }
+ * )
  */
 class Dataset
 {
     /**
      * @var int The internal identifier for this dataset.
-     *
+     * @Groups("expand")
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -46,9 +55,8 @@ class Dataset
 
     /**
      * @var string The user assigned identifier for this dataset.
-     * 
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/identifier")
-     * @Assert\NotBlank
      * @ORM\Column
      * 
      */
@@ -56,7 +64,7 @@ class Dataset
 
     /**
      * @var string The title of this dataset.
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/title")
      * @Assert\NotBlank
      * @ORM\Column 
@@ -65,16 +73,15 @@ class Dataset
 
     /**
      * @var string The description of this datast.
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/description")
-     * @Assert\NotBlank
      * @ORM\Column(type="text")
      */
     public $description;
 
     /**
-     * @var string The publisher of this dataset.
-     *
+     * @var string The publisher IRI/URL of this dataset.
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/publisher")
      * @Assert\Url
      * @Assert\NotBlank
@@ -83,8 +90,16 @@ class Dataset
     public $publisher;
 
     /**
+     * @var string The name of the publisher
+     * @Groups("expand")
+     * @ApiProperty(iri="http://example.org/terms/publisher_name")
+     * @ORM\Column
+     */
+    public $publisher_name;
+
+    /**
      * @var string The license for this dataset.
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/license")
      * @Assert\Url
      * @Assert\NotBlank
@@ -93,23 +108,18 @@ class Dataset
     public $license;
 
     /**
-     * @var \DateTimeInterface The publication date of this dataset.
-     *
+     * @var \DateTimeInterface The date of publication for this dataset.
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/issued")
      * @ORM\Column(type="datetime")
      */
     public $publicationDate;
 
-    /**
-     * @var string The name of the publisher
-     *
-     * @ApiProperty(iri="http://example.org/terms/publisher_name")
-     * @ORM\Column
-     */
-    public $publisher_name;
+
 
     /**
      * @var GraphMap[] Available dataservices for this dataset.
+     * @Groups("expand")
      * @ApiProperty(iri="http://example.org/hasGraphMap")
      * @ORM\OneToMany(targetEntity="GraphMap", mappedBy="dataset", cascade={"persist", "remove"})
      */
@@ -117,6 +127,7 @@ class Dataset
 
     /**
      * @var DataService[] Available dataservices for this dataset.
+     * @Groups("expand")
      * @ApiProperty(iri="http://www.w3.org/ns/dcat#isServedBy")
      * @ORM\OneToMany(targetEntity="DataService", mappedBy="dataset", cascade={"persist", "remove"})
      */

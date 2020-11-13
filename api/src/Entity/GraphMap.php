@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * The GraphMap is an explicit specification of the types of subjects, objects, and their relations .
  *
@@ -19,7 +19,7 @@ class GraphMap
 {
     /**
      * @var int The internal id of this GraphMap.
-     *
+     * @Groups("expand")
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -28,7 +28,7 @@ class GraphMap
 
     /**
      * @var string The type of subject as a URL.
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://example.org/subjectType")
      * @Assert\Url
      * @ORM\Column
@@ -37,7 +37,7 @@ class GraphMap
 
     /**
      * @var string The predicate in the relation, as a URL
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://example.org/predicate")
      * @Assert\NotBlank
      * @Assert\Url
@@ -47,7 +47,7 @@ class GraphMap
 
     /**
      * @var string The type of object, as a URL
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://example.org/objectType")
      * @Assert\Url
      * @ORM\Column

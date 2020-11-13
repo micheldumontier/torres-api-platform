@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * A DataService of a Dataset.
  *
@@ -19,7 +19,7 @@ class DataService
 {
     /**
      * @var int The id of this DataService.
-     *
+     * @Groups("expand")
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -28,7 +28,7 @@ class DataService
 
     /**
      * @var string The name of the DataService.
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/title")
      * @ORM\Column
      * @Assert\NotBlank
@@ -37,7 +37,7 @@ class DataService
 
     /**
      * @var string The description of the DataService.
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://www.w3.org/ns/dcat#endpointDescription")
      * @Assert\NotBlank
      * @ORM\Column
@@ -46,7 +46,7 @@ class DataService
 
     /**
      * @var string The URL of this DataService
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://www.w3.org/ns/dcat#endpointURL")
      * @Assert\Url
      * @Assert\NotBlank
@@ -56,7 +56,7 @@ class DataService
 
     /**
      * @var string The type of service that this DataService provides (e.g. sparql, graphql, api)
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://example.org/serviceType")
      * @ORM\Column
      */
@@ -64,7 +64,7 @@ class DataService
 
     /**
      * @var string The standard that this DataService conforms to
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/#conformsTo")
      * @Assert\Url
      * @ORM\Column
@@ -73,7 +73,7 @@ class DataService
 
     /**
      * @var string The publisher of this dataset.
-     *
+     * @Groups("expand")
      * @ApiProperty(iri="http://purl.org/dc/terms/publisher")
      * @Assert\Url
      * @ORM\Column
