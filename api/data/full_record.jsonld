@@ -1,0 +1,35 @@
+{
+  "@context": "/contexts/Dataset",
+  "@type": "http://www.w3.org/ns/dcat#Dataset",
+  "title": "Test Dataset",
+  "description": "A dataset of testing data",
+  "publisher": "http://localhost",
+  "license": "http://localhost/dataset/test/license",
+  "publicationDate": "2020-01-01T00:00:00+00:00",
+  "publisher_name": "Test User",
+  "graphmaps": [
+    {
+      "@type": "http://example.org/GraphMap",
+      "subjectType": "http://www.w3.org/2000/01/rdf-schema#Resource",
+      "predicate": "http://semanticscience.org/resource/has-participant",
+      "objectType": "http://www.w3.org/2000/01/rdf-schema#Resource"
+    },
+    {
+      "@type": "http://example.org/GraphMap",
+      "subjectType": "http://www.w3.org/2000/01/rdf-schema#Resource",
+      "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "objectType": "http://www.ebi.ac.uk/efo/EFO_0001067"
+    }
+  ],
+  "dataservices": [
+    {
+      "@type": "http://www.w3.org/ns/dcat#DataService",
+      "name": "A test SPARQL endpoint",
+      "description": "A SPARQL endpoint with Test data",
+      "url": "http://localhost:8990/sparql",
+      "serviceType": "SPARQL",
+      "conformsTo": "https://www.w3.org/TR/sparql11-overview/",
+      "publisher": "http://localhost"
+    }
+  ]
+}
