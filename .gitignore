@@ -1,3 +1,5 @@
 api/composer.lock
 api/symfony.lock
 api/update.bat
+
+.env

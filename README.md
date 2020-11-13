@@ -1,3 +1,43 @@
+# Torres API platform
+
+Rebuild and push the different Docker images:
+
+```bash
+./rebuild.sh
+```
+
+Restart the API platform in production:
+
+```bash
+./restart.sh
+```
+
+Access:
+
+* CLIENT_HOST=torres.semanticscience.org
+* API_HOST=api.torres.semanticscience.org
+* Mercure: mercure.torres.semanticscience.org
+
+Original images:
+
+```bash
+ADMIN_IMAGE=quay.io/api-platform/admin
+NGINX_IMAGE=quay.io/api-platform/nginx
+PHP_IMAGE=quay.io/api-platform/php
+CLIENT_IMAGE=quay.io/api-platform/client
+VARNISH_IMAGE=quay.io/api-platform/varnish
+```
+
+Environment vriable not used:
+
+```bash
+NGINX_IMAGE=quay.io/api-platform/nginx
+MERCURE_JWT_KEY=4121344212538417de3e2118
+MERCURE_JWT_SECRET=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjdXJlIjp7InN1YnNjcmliZSI6WyJmb28iLCJiYXIiXSwicHVibGlzaCI6WyJmb28iXX19.B0MuTRMPLrut4Nt3wxVvLtfWB_y189VEpWMlSmIQABQ
+```
+
+
+
 <h1 align="center"><a href="https://api-platform.com"><img src="https://api-platform.com/logo-250x250.png" alt="API Platform"></a></h1>
 
 API Platform is a next-generation web framework designed to easily create API-first projects without compromising extensibility
