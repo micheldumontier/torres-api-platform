@@ -1,0 +1,29 @@
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix asf: <http://projects.apache.org/ns/asfext#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+<https://w3id.org/umids/project/torres>
+  a doap:Project ;
+  doap:name "TORRES" ;
+  doap:description '''TORRES is a repository of FAIR servers that enables users to search for repositories based on the datasets they provide, and the content of those datasets''' ;
+  bibo:status "Active" ;
+
+  doap:programming-language "PHP" ;
+  doap:license <https://choosealicense.com/licenses/mit/> ;
+  doap:bug-database <https://github.com/micheldumontier/torres-api-platform/issues> ;
+  
+  doap:wiki <https://github.com/micheldumontier/torres-api-platform/wiki> ;
+  
+  
+  
+  doap:category "Development" ;
+  doap:repository [
+    a doap:GitRepository ;
+    doap:location <https://github.com/micheldumontier/torres-api-platform> ;
+  ] ;
+  doap:maintainer [
+    a foaf:Person ;
+    foaf:name "Michel Dumontier" ;
+    foaf:mbox <mailto:michel.dumontier@maastrichtuniversity.nl>
+  ] .
