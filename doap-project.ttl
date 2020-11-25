@@ -7,17 +7,14 @@
   a doap:Project ;
   doap:name "TORRES" ;
   doap:description '''TORRES is a repository of FAIR servers that enables users to search for repositories based on the datasets they provide, and the content of those datasets''' ;
-  bibo:status "Active" ;
 
+  doap:created "2020-11-11";
+  bibo:status "Active" ;
+  doap:category "Development" ;
   doap:programming-language "PHP" ;
   doap:license <https://github.com/micheldumontier/torres-api-platform/blob/master/LICENSE> ;
+  
   doap:bug-database <https://github.com/micheldumontier/torres-api-platform/issues> ;
-  
-  doap:wiki <https://github.com/micheldumontier/torres-api-platform/wiki> ;
-  
-  
-  
-  doap:category "Development" ;
   doap:repository [
     a doap:GitRepository ;
     doap:location <https://github.com/micheldumontier/torres-api-platform> ;
