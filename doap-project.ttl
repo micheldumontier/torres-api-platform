@@ -10,7 +10,7 @@
   bibo:status "Active" ;
 
   doap:programming-language "PHP" ;
-  doap:license <https://choosealicense.com/licenses/mit/> ;
+  doap:license <https://github.com/micheldumontier/torres-api-platform/blob/master/LICENSE> ;
   doap:bug-database <https://github.com/micheldumontier/torres-api-platform/issues> ;
   
   doap:wiki <https://github.com/micheldumontier/torres-api-platform/wiki> ;
