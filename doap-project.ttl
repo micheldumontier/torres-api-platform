@@ -12,6 +12,7 @@
   doap:created "2020-11-11";
   bibo:status "Active" ;
   doap:category "Development" ;
+  doap:release "0.5";
   doap:programming-language "PHP" ;
   doap:license <https://github.com/micheldumontier/torres-api-platform/blob/master/LICENSE> ;
   
